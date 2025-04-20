@@ -1,0 +1,245 @@
+/* style.css */
+:root {
+    --primary-color: #48A300;
+    --secondary-color: #61481C;
+    --warning-color: #FF5151;
+    --text-color: #333;
+    --light-text: #858585;
+    --bg-color: #FBFBFB;
+    --progress-bg: #48A3001A;
+    --progress-fill: var(--primary-color);
+    --progress-text: #EEFFE0;
+    --check-circle: #61481C4D;
+    --shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    --border-radius: 1rem;
+    --container-padding: 1.5rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #48A30012;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.heading {
+    font-weight: 700;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    text-align: center;
+    color: var(--primary-color);
+    margin: 1.5rem 0;
+}
+
+.heading span {
+    color: var(--secondary-color);
+}
+
+.card {
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    padding: var(--container-padding);
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subheading {
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.labelinfo {
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.progressbar {
+    width: 100%;
+    height: 1.25rem;
+    border-radius: var(--border-radius);
+    background-color: var(--progress-bg);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--progress-fill);
+    width: 52%;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5rem;
+}
+
+.progress p {
+    font-weight: 500;
+    font-size: 0.625rem;
+    color: var(--progress-text);
+}
+
+.warning {
+    color: var(--warning-color);
+    font-weight: 400;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    display: none;
+}
+
+.goalcontainer {
+    width: 100%;
+    min-height: 5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.custom-checksum {
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    border: 2px solid var(--check-circle);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.tick-sign {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+}
+
+.completed {
+    display: block;
+}
+
+.inputTask input {
+    border: none;
+    width: 100%;
+    height: 1.8rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.inputTask input::placeholder {
+    color: var(--light-text);
+}
+
+.strikeit {
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    vertical-align: middle;
+    text-decoration: line-through;
+    color: #48A300;
+}
+
+.motivation-msg {
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.motivation-msg p {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.creator-msg {
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.creator-msg p {
+    font-weight: 500;
+    font-size: 0.625rem;
+    color: var(--light-text);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    main {
+        padding: 0 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .goalcontainer {
+        min-height: 4rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --container-padding: 1rem;
+        --border-radius: 0.75rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    .subtitle {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .subheading {
+        font-size: 1.25rem;
+    }
+
+    .goalcontainer {
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .inputTask {
+        width: 100%;
+    }
+
+    .inputTask input {
+        width: 100%;
+    }
+}
